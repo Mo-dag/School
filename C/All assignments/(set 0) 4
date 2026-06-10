@@ -6,7 +6,7 @@ int main()
     int y = 6;
     int sum;
     
-    // Printing the sum of x and y using a third variable
+    // Printing the sum of x and y using a third variable 
     sum = x + y;
     printf("x + y = %d\n", sum);
     
