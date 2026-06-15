@@ -17,7 +17,7 @@ int main() {
 
     // TODO
     if(n>0){
-        for(int i = 0; i<n+1;i++){
+        for(int i = 1; i<=n;i++){  //<= n betyder “ta med n"
             sum += i;
         }
     }
