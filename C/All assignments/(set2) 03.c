@@ -32,7 +32,10 @@ int main() {
     double discriminant;
 
     // TODO
+    if(a==0){printf("It is not a quadratic ekvation !!");return 0;}
+
     discriminant = (b*b - (4*a*c));
+
     if( discriminant > 0){
         printf("There are two distinct real roots ");
         x1 = (-b+sqrt(discriminant))/(2*a);
