@@ -92,7 +92,7 @@ int main() {
 
 int square(int i) {
 // TODO
-    return pow(i,2);
+    return i*i;
 }
 float avg(float i,float j,float k){
 
@@ -133,7 +133,7 @@ long long answer=1;
 }
 */
 int pow_int(int base, int exp){
-    return i * i; 
+    return pow(base, exp); 
 }
 int n_digits(int x){
     if(x==0){return 1;}
