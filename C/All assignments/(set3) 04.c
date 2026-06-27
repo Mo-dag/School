@@ -13,7 +13,7 @@ int main() {
     }
     // FEL ! 
     */
-   // Jag måste använda en enda CHAR variable, två nästed for loops och Print statment. 
+   // måste använda en enda CHAR variable, två nested for loops och print statment. 
     
 
    char alpha = 'a';
