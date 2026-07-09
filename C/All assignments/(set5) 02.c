@@ -39,7 +39,7 @@ int main() {
   */
 input[strcspn(input,"\n")]= '\0';
   // TODO Normalise input (make all characters same case)
-  for(int i=0;i!='\0';i++){
+  for(int i=0;input[i]!='\0';i++){
     input[i]=tolower(input[i]);
   }
   // TODO
