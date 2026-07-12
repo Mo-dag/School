@@ -88,7 +88,7 @@ void to_robber(char *dest, const char *src) {
 char *to_robber2(const char *src) {
    // TODO
     int size=strlen(src);
-    char *dest=malloc(size+1);
+    char *dest=malloc(size*3+1);//Strängen kommer att bli betydande större !!
 
     int cnt=0;
     for(int i=0;src[i]!='\0';i++){
