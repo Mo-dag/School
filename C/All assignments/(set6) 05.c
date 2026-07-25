@@ -33,8 +33,11 @@ int main(void){
 
   }
   double pi= 4.0 *inCircleArea/inSquareArea;
-  printf("pi : %lf\n",pi); 
+  double real_pi = 4*atan(1); // Vi fick den från uppgiften, betyder vinkeln vars tangent är 1. alltså 45°.
   
+  printf("pi : %lf\n",pi); 
+  printf("real pi : %lf\n", real_pi);
+  printf("Difference is : %lf\n", real_pi-pi);
 
 
 
