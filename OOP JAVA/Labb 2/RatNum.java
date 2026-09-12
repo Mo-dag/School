@@ -76,8 +76,25 @@ public class RatNum{
 
         //För att kontorllera om värdet är giltig, vi skulle filtrera värdena och spara de i int array. 
         // För att värdena är sträng typ och finns det / med de. 
-        
+        // Vi kommer att använda split. split() är en funk av klassen String.
+        // Den delar Java sträng 
 
-        
+        String[] newS = s.split("/");
+        // Villkoret är : om n = 0 »» fel // om n inte finns »» n = 1;
+        int n;
+        int t;
+        if(newS.length == 1){n = 1;}
+        else{
+            n = Integer.parseInt(newS[1]);
+        }
+        t = Integer.parseInt(newS[0]);
+
+        if(n == 0){throw new NumberFormatException("Error");}
+        // Vi filtrerade värdena och omvandlade de till int.
+        // För att spara värdena i instansvariabler anropar vi
+        // RatNum som vi skapade innan, den är inte static och kan använda this.t , this.n
+        // Men för att den är inte static, den tillhör Obj. Då : vi behöver skapa ett nytt obj. new.
+        return new RatNum(t,n);
     }
+    
 }
