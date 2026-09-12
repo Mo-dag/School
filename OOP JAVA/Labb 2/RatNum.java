@@ -63,9 +63,21 @@ public class RatNum{
   // Reason : tillhörighet.
   //DVS klass metoden : parse(), tillhör klassen.  
   // Instansvariabler tillhör objekt. 
-
+    // med andra ord : är den static metod, kan man inte använda : this.instansvariable;
   
-    public static parse(String s){
+    public static RatNum parse(String s){
+        //Korrigerat: Så en klassmetod kan inte läsa eller ändra instansvariabler direkt. 
+        //Klassmetoden tillhör klassen, medan instansvariablerna tillhör objekt.
+        // Vårt problem här är att vi ska skapa en metod som tar en String,
+        // kontrollerar den och sedan returnerar ett nytt rationellt tal med det godkända värdet.
+        // Det enda rationella talet här är alltså ett objekt av klassen RatNum, eller? 
+        //Eftersom ett rationellt tal representeras av två int-värden.
+
+
+        //För att kontorllera om värdet är giltig, vi skulle filtrera värdena och spara de i int array. 
+        // För att värdena är sträng typ och finns det / med de. 
+        
+
         
     }
 }
