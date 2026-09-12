@@ -96,5 +96,6 @@ public class RatNum{
         // Men för att den är inte static, den tillhör Obj. Då : vi behöver skapa ett nytt obj. new.
         return new RatNum(t,n);
     }
+    // Nu : De vill att vi återanvänder logiken i parse() i stället för att skriva samma kontrollkod igen.
     
 }
