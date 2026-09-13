@@ -97,5 +97,28 @@ public class RatNum{
         return new RatNum(t,n);
     }
     // Nu : De vill att vi återanvänder logiken i parse() i stället för att skriva samma kontrollkod igen.
-    
+     public RatNum(String s){
+        //RatNum obj = new RatNum(parse(s)); DETTA ÄR FEEEEEEEEEEEL !!!!
+        //Problemet är att parse() returnerar en referens, inte själva objektet.
+        //Vi behöver en bro som tar värdena n och t »»
+        // från objektet som referensen pekar på och kopierar dem till det nya objektet.
+        this(parse(s));
+        // This : letar efter en konstruktor som tar emot referenser som parse producerar.
+
+        //parse("3/4")
+        //↓
+        //returnerar referens
+        //        │
+        //        ▼
+        //   objekt A [t=3, n=4]
+        //        │
+        //        │ x pekar hit
+        //        ▼
+        //RatNum(RatNum x)
+        //        │
+        //        ├── this.t = x.t
+        //        └── this.n = x.n
+        //        ↓
+        //   objekt B [t=3, n=4]
+    }
 }
