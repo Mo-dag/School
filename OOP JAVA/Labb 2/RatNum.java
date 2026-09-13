@@ -121,4 +121,35 @@ public class RatNum{
         //        ↓
         //   objekt B [t=3, n=4]
     }
+        // equals måste skrivas med exakt rätt parameter för att fungerar.
+    //Så vi vill ändra den och skapa vår egen equals()
+    // för att kunna jämföra två olika objekt utifrån deras innehåll
+    // inte bara två referenser som pekar på samma objekt
+    @Override    // Ersätter javas gamla equals.
+    public boolean equals(Object obj){
+        // Är obj inte ett RatNum ? "Vi använder instansof : Java-keyword ✅ "
+        if(!(obj instanceof RatNum)){
+            return false;
+        }
+        // obj redan pekar på ett RatNum obj.
+        // obj »» typ Object
+        // vi skulle skapa en ny referensvariable av typen RatNum för att få värde i den korrekta typen
+        // Vi castar obj till RatNum så att r kan använda RatNum:s fält och metoder.
+
+        RatNum r = (RatNum) obj;
+
+        return this.n == r.n && this.t == r.t;
+
+
+        //obj
+        //↓
+        //är RatNum? ❌ → false
+        //↓ ja
+        //gör obj till RatNum r
+        //↓
+        //jämför t och n
+        //↓
+        //true / false
+
+    }
 }
