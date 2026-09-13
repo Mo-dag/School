@@ -152,4 +152,54 @@ public class RatNum{
         //true / false
 
     }
+    // För att jämföra två bråk utan att göra de till decimaler
+    // Kommer vi att använda kors-multi
+    // a/b < c/d ?
+    // a * d < c * b ?
+    public boolean lessThan(RatNum r){
+
+        if ((this.t*r.n)<(r.t*this.n)){
+            return true;
+        }
+        return false;
+
+        // return this.t * r.n < r.t * this.n;
+    }
+    // För att addera två olika RatTal, skulle vi ha en gemensam nämnare.
+    // a * d + c * b / b*d
+    public RatNum add(RatNum r){
+        RatNum sum = new RatNum();
+        sum.t = (this.t * r.n) + (this.n * r.t);
+        sum.n = this.n * r.n;
+        return new RatNum(sum.t,sum.n);
+    }
+    public RatNum sub(RatNum r){
+        RatNum sum = new RatNum();
+        sum.t = (this.t*r.n) - (this.n*r.t);
+        sum.n = this.n * r.n;
+        return new RatNum(sum.t,sum.n);
+    }
+    public RatNum mul(RatNum r){
+        RatNum sum = new RatNum();
+        sum.n = this.n*r.n;
+        sum.t = this.t*r.t;
+        return new RatNum(sum.t,sum.n);
+    }
+    //a/b ÷ c/d
+    //↓
+    //a/b * d/c
+    //↓
+    //(a*d) / (b*c)
+
+    public RatNum div(RatNum r){
+        RatNum sum = new RatNum();
+        sum.t = this.t * r.n;
+        sum.n = this.n * r.t;
+
+        return new RatNum(sum.t,sum.n);
+    }
+    public String toIntString(){
+        int tal = this.t/this.n;
+        return Integer.toString(tal);
+    }
 }
