@@ -131,6 +131,10 @@ public class RatNum{
         if(!(obj instanceof RatNum)){
             return false;
         }
+        //if(this.getClass() != obj.getClass) ← ← ← Detta är lärarens sätt att skriva villkoret. 
+        //if(!(obj instansof RatNum)          ← ← ← Vår sätt. Både gör samma sak.
+
+        
         // obj redan pekar på ett RatNum obj.
         // obj »» typ Object
         // vi skulle skapa en ny referensvariable av typen RatNum för att få värde i den korrekta typen
