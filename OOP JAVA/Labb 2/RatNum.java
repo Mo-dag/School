@@ -173,6 +173,13 @@ public class RatNum{
         //        └── this.n = x.n
         //        ↓
         //   objekt B [t=3, n=4]
+
+        /*
+        Vi kunde skriva också : 
+        RatNum temp = parse(s);
+        this.n = temp.n;
+        this.t = temp.t;
+        */
     }
 
     /**
