@@ -1,1 +1,15 @@
 En beskrivning av vilka klasser som ska finnas och deras ansvar samt hur de relaterar till varandra. 
+
+Programmet ska visa en fönster där står det en blank yta som är redo att ritas på, knapper och en text som visar aktuell ritverktyg och färgen. 
+
+Användaren ska kunna rita på ytan, spara ritningsdetalj, ladda en sparad ritning och ångra sista action.
+Användaren skulle kunna välja av flera färger och ritnings form alternativ. 
+
+Programmet ska delas till Model, View, Controller.
+Model är den backend av programmet, den komemr att lagra figurerna vi ritar , färgerna och ritningsdetaljer. Den hanterar save och load och ångra.
+Dessutom håller model vilka färg och figurtyp som gäller.
+View är den del som läser av info från model och rita upp figurerna på skärmen.
+Controller är den del som läser användarens input och anropa rätt metod från model.
+
+
+
