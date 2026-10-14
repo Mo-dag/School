@@ -11,5 +11,9 @@ Dessutom håller model vilka färg och figurtyp som gäller.
 View är den del som läser av info från model och rita upp figurerna på skärmen.
 Controller är den del som läser användarens input och anropa rätt metod från model.
 
+Klasser och deras relationer. 
+
+För att vi har många gemensamma egenskaper mellan figurer och färger, är det enklare och mer hållbar att återanvända kod, då kan vi skapa en abstrakt klass för Figur.
+Denna klass ska ärva den och bygga mer egenskapar på den. Det är prick, Oval, Rektangel som ärver från figur.
 
 
