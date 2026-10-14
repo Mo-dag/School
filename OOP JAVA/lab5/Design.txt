@@ -1,19 +1,31 @@
-En beskrivning av vilka klasser som ska finnas och deras ansvar samt hur de relaterar till varandra. 
+Design
 
-Programmet ska visa en fönster där står det en blank yta som är redo att ritas på, knapper och en text som visar aktuell ritverktyg och färgen. 
+En beskrivning av vilka klasser som ska finnas, deras ansvar och hur de relaterar till varandra.
 
-Användaren ska kunna rita på ytan, spara ritningsdetalj, ladda en sparad ritning och ångra sista action.
-Användaren skulle kunna välja av flera färger och ritnings form alternativ. 
+Programmet ska visa ett fönster där det finns en blank yta som är redo att ritas på, knappar och en text som visar aktuellt ritverktyg och färg.
 
-Programmet ska delas till Model, View, Controller.
-Model är den backend av programmet, den komemr att lagra figurerna vi ritar , färgerna och ritningsdetaljer. Den hanterar save och load och ångra.
-Dessutom håller model vilka färg och figurtyp som gäller.
-View är den del som läser av info från model och rita upp figurerna på skärmen.
-Controller är den del som läser användarens input och anropa rätt metod från model.
+Användaren ska kunna rita på ytan, spara ritningen, ladda en sparad ritning och ångra den senaste handlingen. Användaren ska också kunna välja mellan flera färger och olika figurer.
 
-Klasser och deras relationer. 
+Programmet ska delas upp i Model, View och Controller.
 
-För att vi har många gemensamma egenskaper mellan figurer och färger, är det enklare och mer hållbar att återanvända kod, då kan vi skapa en abstrakt klass för Figur.
-Denna klass ska ärva den och bygga mer egenskapar på den. Det är prick, Oval, Rektangel som ärver från figur.
+Model är programmets backend. Den kommer att lagra figurerna vi ritar, färgerna och ritningens information. Den hanterar också Save, Load och Undo. Dessutom håller Model reda på vilken färg och figurtyp som är vald.
 
+View är den del som läser information från Model och ritar upp figurerna på skärmen.
 
+Controller är den del som tar emot användarens input och anropar rätt metod från Model.
+
+Klasser och deras relationer
+
+Eftersom figurerna har många gemensamma egenskaper, som färg, position och storlek, är det enklare och mer hållbart att återanvända kod. Därför kan vi skapa en abstrakt klass som heter Figur.
+
+Klasserna Prick, Oval och Rektangel ska ärva från Figur och lägga till de egenskaper och metoder som de själva behöver.
+
+När vi ritar behöver informationen om figurerna sparas. Vi ska lagra den informationen i klassen Model.
+
+Vi ska skapa en ArrayList, som finns i Javas standardbibliotek.
+
+Vi ska använda Generics för att bestämma vilka datatyper listan får innehålla. I vårt fall använder vi ArrayList<Figur>.
+
+Det betyder att listan kan innehålla objekt av typen Figur och dess underklasser, exempelvis Prick, Oval och Rektangel.
+
+På det sättet kan vi återanvända samma kod för olika figurtyper. Vi gör också programmet mer typsäkert eftersom Java kan upptäcka om vi försöker lägga in ett objekt som inte tillhör Figur eller dess underklasser.
