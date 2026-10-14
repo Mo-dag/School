@@ -1,3 +1,5 @@
+import java.awt.Color;
+
 public abstract class Figur{
   private int x,y,width,height;
   private Color color;
@@ -8,6 +10,10 @@ public abstract class Figur{
     this.width = width;
     this.height = height;
     this.color = color;
+  }
+  // Vi ska lägga en metod som subklasserna : (Cirkel, Rektangel) ska implementera.
+  public abstract void draw(Graphics g){
+    
   }
   
 }
