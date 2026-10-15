@@ -23,3 +23,16 @@ public abstract class Figur{
   public int getColor(){return color;}
   
 }
+/*
+             Figur (abstract)
+                   │
+          ┌────────┼────────┐
+          ↓        ↓        ↓
+      Rektangel   Oval     Prick
+          │        │        │
+          └────────┼────────┘
+                   ↓
+            ArrayList<Figur>
+                   │
+                 Model
+*/
