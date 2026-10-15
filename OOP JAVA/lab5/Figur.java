@@ -15,5 +15,11 @@ public abstract class Figur{
   public abstract void draw(Graphics g){
     
   }
+  // Vi skapa getters för att låta View läsa värde från privata variabler : x,y,width,height,color
+  public getX(){return x;}
+  public getY(){return y;
+  public getWidth(){return width;}
+  public getHeight(){return height;}
+  public getColor(){return color;}
   
 }
