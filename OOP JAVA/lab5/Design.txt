@@ -1,31 +1,30 @@
-Design
+Design – Labb 5
 
-En beskrivning av vilka klasser som ska finnas, deras ansvar och hur de relaterar till varandra.
+Programmet är ett enkelt ritprogram där användaren kan välja färg och figur, rita med musen och ångra den senaste figuren. Det ska också gå att spara en ritning och ladda in den igen. Längst ner visas vald figur, färg och musens X- och Y-koordinater.
 
-Programmet ska visa ett fönster där det finns en blank yta som är redo att ritas på, knappar och en text som visar aktuellt ritverktyg och färg.
+Programmet är uppdelat enligt MVC för att varje del ska ha ett eget ansvar. Det gör koden lättare att förstå och ändra utan att samma kod upprepas på flera ställen.
 
-Användaren ska kunna rita på ytan, spara ritningen, ladda en sparad ritning och ångra den senaste handlingen. Användaren ska också kunna välja mellan flera färger och olika figurer.
+Model
+Model lagrar de ritade figurerna i en ArrayList<Figur>. Metoden addFigur() lägger till en figur och undo() tar bort den senast tillagda. View kan läsa figurerna genom getFigur() och getNrFig(). Model har också metoder för att spara och ladda ritningen. Vid laddning byts figurlistan ut i det befintliga Model-objektet, så View och Controller kan fortsätta använda samma modell.
 
-Programmet ska delas upp i Model, View och Controller.
+Figur, Rektangel, Oval och Prick
+Figur är en abstrakt klass som innehåller figurernas gemensamma egenskaper: position (x, y), bredd, höjd och färg. Klassen har getters och en abstrakt metod draw(Graphics g). Rektangel, Oval och Prick ärver från Figur och implementerar draw() på olika sätt. Genom att alla ärver från Figur kan Model lagra dem i samma lista och View kan anropa draw() utan att kontrollera figurtypen.
 
-Model är programmets backend. Den kommer att lagra figurerna vi ritar, färgerna och ritningens information. Den hanterar också Save, Load och Undo. Dessutom håller Model reda på vilken färg och figurtyp som är vald.
+View
+View ärver från JPanel och har en referens till Model. I paintComponent(Graphics g) går View igenom modellens lista och anropar draw(g) på varje figur. View kan också visa en tillfällig figur medan användaren drar musen. Den tillfälliga figuren finns inte i Models lista förrän musknappen släpps. När något ändras begärs omritning med repaint().
 
-View är den del som läser information från Model och ritar upp figurerna på skärmen.
+Controller
+Controller ärver från MouseAdapter och tar emot mushändelser från View. Vid mousePressed() sparas startpositionen. Vid mouseDragged() uppdateras förhandsvisningen och vid mouseReleased() skapas den valda figuren och läggs till i Model. Controller skapar också knappar för figur- och färgval, ångra, spara och ladda. En JLabel visar aktuell figur, färg och muskoordinater. När användaren väljer Spara eller Ladda används JFileChooser för att välja fil.
 
-Controller är den del som tar emot användarens input och anropar rätt metod från Model.
+Main
+Main skapar ett Model-objekt, skickar samma modell till View och kopplar sedan Controller till båda. Main skapar också ett JFrame och placerar knapparna överst, ritytan i mitten och statusraden längst ner.
 
-Klasser och deras relationer
+Relationer mellan klasserna
+Model känner inte till View eller Controller. View känner till Model men inte Controller. Controller har referenser till både Model och View. Alla ritade figurer är underklasser till Figur. På det sättet hålls datalagring, ritning och användarens kommandon åtskilda.
 
-Eftersom figurerna har många gemensamma egenskaper, som färg, position och storlek, är det enklare och mer hållbart att återanvända kod. Därför kan vi skapa en abstrakt klass som heter Figur.
+Spara och ladda
+Model och Figur implementerar Serializable så att ritningen kan skrivas till och läsas från en fil med ObjectOutputStream och ObjectInputStream. Figurerna laddas tillbaka i samma ordning, därför fungerar även Undo efter laddning.
 
-Klasserna Prick, Oval och Rektangel ska ärva från Figur och lägga till de egenskaper och metoder som de själva behöver.
+Gör om (Redo) ingår inte i den nuvarande implementationen.
 
-När vi ritar behöver informationen om figurerna sparas. Vi ska lagra den informationen i klassen Model.
 
-Vi ska skapa en ArrayList, som finns i Javas standardbibliotek.
-
-Vi ska använda Generics för att bestämma vilka datatyper listan får innehålla. I vårt fall använder vi ArrayList<Figur>.
-
-Det betyder att listan kan innehålla objekt av typen Figur och dess underklasser, exempelvis Prick, Oval och Rektangel.
-
-På det sättet kan vi återanvända samma kod för olika figurtyper. Vi gör också programmet mer typsäkert eftersom Java kan upptäcka om vi försöker lägga in ett objekt som inte tillhör Figur eller dess underklasser.
