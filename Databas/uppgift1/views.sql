@@ -42,5 +42,13 @@ SELECT
 FROM WaitingList;
 
 --4
+CREATE VIEW PassedCourses AS
+SELECT t.student, t.course, c.credits
+FROM Taken AS t
+JOIN Courses AS c
+    ON t.course = c.code
+WHERE t.grade <> 'U';
+
+
 -- yeah den va fan big as fuck, den gör vi imon,
 -- ba instruktionerna i sig va enorma o hade massa tips för steg o "hints" i sig
