@@ -1,6 +1,6 @@
 -- Students
 CREATE TABLE Students (
-    idnr CHAR(10) NOT NULL,
+    idnr CHAR(10),//NOT NULL behövs inte för primary key. 
     name TEXT NOT NULL,
     login TEXT NOT NULL,
     program CHAR(7) NOT NULL,
@@ -16,8 +16,8 @@ CREATE TABLE Students (
 
 -- Branches
 CREATE TABLE Branches (
-    name TEXT NOT NULL,
-    program CHAR(7) NOT NULL,
+    name TEXT,
+    program CHAR(7),
 
     PRIMARY KEY (name, program)
 );
@@ -25,7 +25,7 @@ CREATE TABLE Branches (
 
 -- Courses
 CREATE TABLE Courses (
-    code CHAR(6) NOT NULL,
+    code CHAR(6),
     name TEXT NOT NULL,
     credits NUMERIC NOT NULL,
     department TEXT NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE Courses (
 
 -- LimitedCourses
 CREATE TABLE LimitedCourses (
-    code CHAR(6) NOT NULL,
+    code CHAR(6),
     capacity INT NOT NULL,
 
     PRIMARY KEY (code),
@@ -52,7 +52,7 @@ CREATE TABLE LimitedCourses (
 
 -- StudentBranches
 CREATE TABLE StudentBranches (
-    student CHAR(10) NOT NULL,
+    student CHAR(10),
     branch TEXT NOT NULL,
     program CHAR(7) NOT NULL,
 
@@ -66,7 +66,7 @@ CREATE TABLE StudentBranches (
 
 -- Classifications
 CREATE TABLE Classifications (
-    name TEXT NOT NULL,
+    name TEXT,
 
     PRIMARY KEY (name)
 );
@@ -74,7 +74,7 @@ CREATE TABLE Classifications (
 
 -- Classified
 CREATE TABLE Classified (
-    course CHAR(6) NOT NULL,
+    course CHAR(6),
     classification TEXT NOT NULL,
 
     PRIMARY KEY (course, classification),
@@ -86,8 +86,8 @@ CREATE TABLE Classified (
 
 -- MandatoryProgram
 CREATE TABLE MandatoryProgram (
-    course CHAR(6) NOT NULL,
-    program CHAR(7) NOT NULL,
+    course CHAR(6) ,
+    program CHAR(7) ,
 
     PRIMARY KEY (course, program),
 
@@ -97,9 +97,9 @@ CREATE TABLE MandatoryProgram (
 
 -- MandatoryBranch
 CREATE TABLE MandatoryBranch (
-    course CHAR(6) NOT NULL,
-    branch TEXT NOT NULL,
-    program CHAR(7) NOT NULL,
+    course CHAR(6) ,
+    branch TEXT ,
+    program CHAR(7) ,
 
     PRIMARY KEY (course, branch, program),
 
@@ -111,9 +111,9 @@ CREATE TABLE MandatoryBranch (
 
 -- RecommendedBranch
 CREATE TABLE RecommendedBranch (
-    course CHAR(6) NOT NULL,
-    branch TEXT NOT NULL,
-    program CHAR(7) NOT NULL,
+    course CHAR(6) ,
+    branch TEXT ,
+    program CHAR(7) ,
 
     PRIMARY KEY (course, branch, program),
 
@@ -125,8 +125,8 @@ CREATE TABLE RecommendedBranch (
 
 -- Registered
 CREATE TABLE Registered (
-    student CHAR(10) NOT NULL,
-    course CHAR(6) NOT NULL,
+    student CHAR(10),
+    course CHAR(6),
 
     PRIMARY KEY (student, course),
 
@@ -137,8 +137,8 @@ CREATE TABLE Registered (
 
 -- Taken
 CREATE TABLE Taken (
-    student CHAR(10) NOT NULL,
-    course CHAR(6) NOT NULL,
+    student CHAR(10) ,
+    course CHAR(6),
     grade CHAR(1) NOT NULL,
 
     PRIMARY KEY (student, course),
@@ -152,8 +152,8 @@ CREATE TABLE Taken (
 
 -- WaitingList
 CREATE TABLE WaitingList (
-    student CHAR(10) NOT NULL,
-    course CHAR(6) NOT NULL,
+    student CHAR(10),
+    course CHAR(6),
     position INT NOT NULL,
 
     PRIMARY KEY (student, course),
