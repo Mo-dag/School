@@ -1,6 +1,6 @@
 -- Students
 CREATE TABLE Students (
-    idnr CHAR(10),//NOT NULL behövs inte för primary key. 
+    idnr CHAR(10), --NOT NULL behövs inte för primary key. 
     name TEXT NOT NULL,
     login TEXT NOT NULL,
     program CHAR(7) NOT NULL,
