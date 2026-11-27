@@ -57,7 +57,7 @@ SELECT
     course,
     credits
 FROM FinishedCourses
-WHERE grade <> 'U';
+WHERE grade <> 'U';  -- <> är !=
 
 --helper
 CREATE VIEW UnreadMandatory AS
