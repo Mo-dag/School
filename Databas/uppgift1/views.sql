@@ -135,6 +135,8 @@ SELECT
     ) AS qualified
      
 FROM Students AS s
+    LEFT JOIN StudentBranches AS sb
+    ON s.idnr = sb.student
 -- Total credits
 LEFT JOIN (
     SELECT
