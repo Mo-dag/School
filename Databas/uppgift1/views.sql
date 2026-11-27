@@ -86,7 +86,7 @@ FROM (
 ) AS m
 -- Remove mandatory courses already passed
 WHERE NOT EXISTS (
-    SELECT "placeholder" -- vill inte ha nåt härifrån, bara veta om det finns >0 rows där detta stämmer
+    SELECT 1 -- vill inte ha nåt härifrån, bara veta om det finns >0 rows där detta stämmer
     FROM PassedCourses AS pc
     WHERE pc.student = m.student
       AND pc.course = m.course
@@ -133,8 +133,8 @@ SELECT
         AND COALESCE(mc.mathCredits, 0) >= 20
         AND COALESCE(sc.seminarCourses, 0) >= 1
     ) AS qualified
-    
-FROM Students AS
+     
+FROM Students AS s
 -- Total credits
 LEFT JOIN (
     SELECT
